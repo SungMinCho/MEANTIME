@@ -1,7 +1,7 @@
 ## MEANTIME
 
 Official implementation of
-[MEANTIME: Mixture of Attention Mechanisms with Multi-temporal Embeddings for Sequential Recommendation](link_to_paper)
+[MEANTIME: Mixture of Attention Mechanisms with Multi-temporal Embeddings for Sequential Recommendation](https://arxiv.org/abs/2008.08273)
 , published in [RecSys 2020: 14th ACM Conference on Recommender Systems](https://recsys.acm.org/recsys20/).
 
 This repository contains PyTorch implementation of MEANTIME, as well as PyTorch translations of various baselines (refer to [References](#references) below).
