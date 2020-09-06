@@ -48,9 +48,9 @@ def setup_train(args, machine_is_host=False):
     exp_root, exp_group, exp_name = args.experiment_root, args.experiment_group, args.experiment_name
     assert exp_name is not None
     local_export_root = os.path.join(exp_root, exp_group, exp_name)
-    remote_export_root = os.path.join(REMOTE_ROOT, local_export_root)
 
     if machine_is_host:
+        remote_export_root = None
         communicator = None
         if os.path.exists(local_export_root):
             if exp_group == 'test':
@@ -63,6 +63,7 @@ def setup_train(args, machine_is_host=False):
         export_config(args, local_export_root)
         print('Export root', local_export_root)
     else:
+        remote_export_root = os.path.join(REMOTE_ROOT, local_export_root)
         communicator = Communicator(HOST, PORT, USERNAME, PASSWORD)
         created = communicator.create_dir(remote_dir_path=remote_export_root)
         if not created:
